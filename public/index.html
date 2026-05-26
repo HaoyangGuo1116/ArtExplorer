@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Art Explorer</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+      <div class="container-fluid px-3 px-md-5">
+        <a class="navbar-brand fw-bold fs-4" href="#" id="brandLink">
+          🎨 Art Explorer
+        </a>
+
+        <div class="navbar-nav ms-auto flex-row gap-3">
+          <a class="nav-link active" href="#" id="navSearch">Search</a>
+          <a class="nav-link position-relative" href="#" id="navFavorites">
+            Favorites
+            <span
+              id="favoritesCount"
+              class="badge bg-primary rounded-pill d-none"
+              >0</span
+            >
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container-fluid px-3 px-md-5 py-4">
+      <!-- Search View -->
+      <section id="searchView">
+        <!-- Search Bar -->
+        <div class="search-wrapper">
+          <div class="search-box shadow-sm">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control search-input"
+              placeholder="Search artworks..."
+            />
+
+            <select id="sourceSelect" class="form-select source-select">
+              <option value="both" selected>Both</option>
+              <option value="met">Met Museum</option>
+              <option value="harvard">Harvard</option>
+            </select>
+
+            <div class="form-check image-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="hasImageCheck"
+                checked
+              />
+              <label class="form-check-label" for="hasImageCheck">
+                Has Image
+              </label>
+            </div>
+
+            <button id="searchBtn" class="btn btn-primary search-btn">
+              Search
+            </button>
+          </div>
+        </div>
+
+        <!-- Result Count -->
+        <h4 id="resultCount" class="result-count d-none">0 results found</h4>
+
+        <!-- Loading Skeleton -->
+        <div id="loadingArea" class="row g-4 d-none"></div>
+
+        <!-- Results -->
+        <div id="resultsArea" class="row g-4"></div>
+
+        <!-- Pagination -->
+        <div id="paginationArea" class="pagination-wrapper d-none">
+          <button id="prevBtn" class="btn btn-outline-secondary btn-sm">
+            Previous
+          </button>
+          <span id="pageIndicator" class="page-indicator">Page 1</span>
+          <button id="nextBtn" class="btn btn-outline-secondary btn-sm">
+            Next
+          </button>
+        </div>
+      </section>
+
+      <!-- Detail View -->
+      <section id="detailView" class="d-none">
+        <button id="backToResultsBtn" class="btn btn-outline-secondary mb-4">
+          ← Back to Results
+        </button>
+
+        <div id="detailContent">
+          <!-- Detail content will be rendered by JS later -->
+        </div>
+      </section>
+
+      <!-- Favorites View -->
+      <section id="favoritesView" class="d-none">
+        <h1 class="favorites-title">My Favorites</h1>
+
+        <div id="favoritesArea" class="row g-4"></div>
+
+        <div id="emptyFavorites" class="empty-favorites d-none">
+          <div class="empty-icon">🎨</div>
+          <p>
+            You haven't saved any favorites yet. Start exploring and add some
+            artworks!
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/api.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
