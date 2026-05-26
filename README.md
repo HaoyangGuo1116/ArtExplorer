@@ -1,6 +1,6 @@
 # Art Collection Explorer with Favorites
 
-This project is a full-stack web application built for CSCI 571 Assignment 3. It allows users to search artworks from multiple museum collections, view detailed artwork information, read artist biographies, explore related works, view museum locations on an interactive map, and save favorite artworks locally.
+This project is a full-stack web application. It allows users to search artworks from multiple museum collections, view detailed artwork information, read artist biographies, explore related works, view museum locations on an interactive map, and save favorite artworks locally.
 
 The backend is built with Node.js and Express and works as an API proxy between the frontend and external services. It integrates the Metropolitan Museum of Art API, Harvard Art Museums API, and Wikipedia API. The Harvard API key is stored securely as an environment variable and is not exposed in client-side code.
 
